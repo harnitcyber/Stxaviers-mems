@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090d">
+  <meta name="description" content="HARNXT — personal portfolio, creative work, and a little internet humour.">
+  <title>HARNXT — Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#09090d;--panel:#12121a;--panel2:#181823;--line:#292938;--text:#f4f2fa;--muted:#a4a1b3;--purple:#a78bfa;--pink:#f0abfc;--green:#b9fbc0}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#30204d 0,transparent 35%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.container{width:min(1080px,calc(100% - 40px));margin:auto}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12}
+    .logo{font:700 25px "Space Grotesk";letter-spacing:-1.5px}.logo span{color:var(--purple)}
+    .navlinks{display:flex;gap:25px;color:var(--muted);font-size:14px}.navlinks a:hover{color:white}
+    .menu{display:none;background:transparent;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 12px}
+    .hero{min-height:590px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px;padding:76px 0 85px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid #a78bfa55;border-radius:99px;color:#d6c8ff;background:#a78bfa12;font-size:12px;letter-spacing:1.3px;text-transform:uppercase}
+    .dot{height:7px;width:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+    h1,h2,h3,p{margin-top:0}h1{font:700 clamp(54px,8vw,91px)/.98 "Space Grotesk";letter-spacing:-5px;margin:24px 0}
+    h1 .gradient{background:linear-gradient(100deg,#c4b5fd,#f0abfc 65%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .intro{font-size:17px;color:var(--muted);max-width:540px}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border-radius:12px;font-weight:700;font-size:14px;transition:.2s}
+    .primary{background:linear-gradient(110deg,#a78bfa,#d8a5fa);color:#171020;box-shadow:0 8px 30px #a78bfa2b}.primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px #a78bfa45}
+    .outline{border:1px solid var(--line);background:#ffffff06;color:var(--text)}.outline:hover{border-color:var(--purple);transform:translateY(-2px)}
+    .visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:370px}
+    .orb{position:absolute;width:290px;height:290px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#ec9df0 60%,#6551ad);filter:blur(1px);opacity:.9;box-shadow:0 0 100px #9b70eb55}
+    .profile-card{position:relative;width:min(310px,90%);padding:17px;border-radius:24px;background:#17151fdd;border:1px solid #ffffff26;backdrop-filter:blur(15px);transform:rotate(4deg);box-shadow:0 30px 90px #0009}
+    .avatar{height:235px;border-radius:16px;background:linear-gradient(145deg,#29203e,#12121a);display:grid;place-items:center;overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}.avatar-placeholder{font:700 82px "Space Grotesk";color:#c4b5fd;text-shadow:0 0 35px #a78bfa88}
+    .card-bottom{display:flex;justify-content:space-between;align-items:center;padding:14px 2px 2px}.card-bottom strong{font:700 19px "Space Grotesk"}.tag{font-size:11px;color:#d8c8ff;background:#a78bfa20;padding:5px 9px;border-radius:99px}
+    .float{position:absolute;padding:10px 14px;background:#191722;border:1px solid #ffffff20;border-radius:13px;box-shadow:0 10px 30px #0008;font-size:13px}.float.one{top:30px;right:-2px;transform:rotate(7deg)}.float.two{bottom:28px;left:-5px;transform:rotate(-7deg)}
+    section{padding:78px 0;border-top:1px solid #ffffff10}.section-label{color:var(--purple);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700}.section-title{font:700 clamp(32px,5vw,48px)/1.1 "Space Grotesk";letter-spacing:-2px;margin:12px 0 14px}.section-desc{color:var(--muted);max-width:620px;margin-bottom:30px}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:25px}.panel{background:linear-gradient(145deg,#171722,#101017);border:1px solid var(--line);border-radius:19px;padding:25px}.panel p{color:var(--muted);margin-bottom:0}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:20px;background:#151520;border:1px solid var(--line);border-radius:16px}.stat strong{display:block;font:700 29px "Space Grotesk";color:var(--purple)}.stat span{font-size:12px;color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.work-card{padding:22px;border-radius:18px;border:1px solid var(--line);background:var(--panel);transition:.2s}.work-card:hover{transform:translateY(-5px);border-color:#a78bfa88}.work-icon{height:44px;width:44px;display:grid;place-items:center;border-radius:13px;background:#a78bfa1b;font-size:22px;margin-bottom:18px}.work-card h3{font:600 19px "Space Grotesk";margin-bottom:7px}.work-card p{font-size:14px;color:var(--muted);margin-bottom:0}
+    .meme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.meme{min-height:185px;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;background:linear-gradient(135deg,#242039,#171520)}.meme:nth-child(2){background:linear-gradient(135deg,#34203c,#171520)}.meme:nth-child(3){background:linear-gradient(135deg,#1d3540,#171520)}.meme .emoji{font-size:37px}.meme strong{font:700 20px "Space Grotesk";max-width:230px}.meme small{color:#c4bfd2}
+    .contact-box{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:32px;border:1px solid #a78bfa55;border-radius:22px;background:radial-gradient(circle at 90% 10%,#8057ba33,transparent 40%),#15131e}
+    .contact-box h2{font:700 clamp(28px,4vw,42px) "Space Grotesk";letter-spacing:-1.5px;margin-bottom:8px}.contact-box p{color:var(--muted);margin:0}.socials{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.socials a{font-size:13px;color:#d9cdfa;border:1px solid #ffffff24;border-radius:10px;padding:7px 11px}
+    footer{padding:28px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:760px){.navlinks{display:none;position:absolute;top:68px;left:20px;right:20px;padding:17px;background:#17151f;border:1px solid var(--line);border-radius:14px;flex-direction:column;gap:14px;z-index:3}.navlinks.open{display:flex}.menu{display:block}.hero{grid-template-columns:1fr;padding:65px 0 50px;gap:15px}.visual{min-height:340px}.orb{width:250px;height:250px}.about-grid{grid-template-columns:1fr}.cards,.meme-grid{grid-template-columns:1fr}.contact-box{align-items:flex-start;flex-direction:column}section{padding:60px 0}h1{letter-spacing:-3px}}
+  </style>
+</head>
+<body>
+  <header class="container nav">
+    <a class="logo" href="#home">HAR<span>NXT</span>.</a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#about">About</a><a href="#work">What I do</a><a href="#vibe">Meme corner</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Welcome to my corner of the internet</div>
+        <h1>Hey, I'm<br><span class="gradient">HARNXT.</span></h1>
+        <p class="intro">A curious mind with creative energy, big ideas, and a questionable amount of time spent laughing at memes. This is my little space on the internet.</p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#about">Explore my world <span>↗</span></a>
+          <a class="btn outline" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="orb"></div>
+        <div class="profile-card">
+          <div class="avatar" id="avatar">
+            <!-- Replace this placeholder with your photo:
+                 <img src="profile.jpg" alt="My profile photo"> -->
+            <div class="avatar-placeholder">HN</div>
+          </div>
+          <div class="card-bottom"><strong>HARNXT</strong><span class="tag">just vibing ✦</span></div>
+        </div>
+        <div class="float one">⚡ Creative mode: ON</div>
+        <div class="float two">😂 Professional meme enjoyer</div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container reveal">
+        <div class="section-label">01 / A little about me</div>
+        <h2 class="section-title">Not just a username.</h2>
+        <p class="section-desc">A little introduction, a little personality, and a lot of room to make this page your own.</p>
+        <div class="about-grid">
+          <div class="panel">
+            <h3 style="font:600 22px 'Space Grotesk'">The person behind HARNXT 👋</h3>
+            <p>Hey! I'm HARNXT. I enjoy exploring ideas, learning new things, creating stuff, and finding humour in everyday life. I believe a good portfolio should show more than a list of skills — it should show a bit of personality too.</p>
+            <p style="margin-top:13px">This is your space: edit this text to add your real introduction, interests, goals, and anything you want visitors to know.</p>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>01</strong><span>One unique human</span></div>
+            <div class="stat"><strong>∞</strong><span>Ideas loading</span></div>
+            <div class="stat"><strong>24/7</strong><span>Meme energy</span></div>
+            <div class="stat"><strong>100%</strong><span>Being myself</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container reveal">
+        <div class="section-label">02 / What I'm into</div>
+        <h2 class="section-title">Things that make me, me.</h2>
+        <p class="section-desc">Replace these cards with your actual hobbies, skills, interests, or projects.</p>
+        <div class="cards">
+          <article class="work-card"><div class="work-icon">🎨</div><h3>Creativity</h3><p>Making ideas look and feel awesome, experimenting with designs and trying new things.</p></article>
+          <article class="work-card"><div class="work-icon">💻</div><h3>Technology</h3><p>Exploring websites, digital tools, tech, and the possibilities of building online.</p></article>
+          <article class="work-card"><div class="work-icon">🎮</div><h3>Gaming & fun</h3><p>Taking breaks, enjoying games, sharing laughs, and collecting unforgettable moments.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="vibe">
+      <div class="container reveal">
+        <div class="section-label">03 / The meme corner</div>
+        <h2 class="section-title">A portfolio, but make it fun.</h2>
+        <p class="section-desc">A few relatable thoughts. Swap these text cards with your favourite original memes or images.</p>
+        <div class="meme-grid">
+          <article class="meme"><span class="emoji">🧠</span><strong>Me: I'll sleep early tonight.</strong><small>Also me at 2:47 AM: one more scroll.</small></article>
+          <article class="meme"><span class="emoji">💻</span><strong>It works on my device.</strong><small>Developer's favourite plot twist.</small></article>
+          <article class="meme"><span class="emoji">📚</span><strong>Brain.exe has stopped working.</strong><small>When someone says “quick question”.</small></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container reveal">
+        <div class="contact-box">
+          <div>
+            <div class="section-label">04 / Say hello</div>
+            <h2>Let's connect.</h2>
+            <p>Have an idea, want to collaborate, or just want to share a good meme?</p>
+            <div class="socials">
+              <!-- Replace # with your real profile URLs -->
+              <a href="#" target="_blank" rel="noopener">Instagram ↗</a>
+              <a href="#" target="_blank" rel="noopener">YouTube ↗</a>
+              <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+          </div>
+          <!-- Replace the email address with yours -->
+          <a class="btn primary" href="mailto:hello@example.com">Email me ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <span>© <span id="year"></span> HARNXT. Made with a little chaos ✦</span>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("navlinks");
+    menuBtn.addEventListener("click",()=>nav.classList.toggle("open"));
+    nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>nav.classList.remove("open")));
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
